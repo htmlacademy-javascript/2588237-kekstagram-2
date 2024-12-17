@@ -1,6 +1,8 @@
 //Функция проверки длины строки
 const checkLenghtString = (string, maxLenght) => string.length <= maxLenght;
 
+checkLenghtString('игра', 5);
+
 //Функция проверки палиндромности
 const isPalindrom = (string) => {
   const cleaned = string.toLowerCase().replaceAll(' ', '');
@@ -12,3 +14,5 @@ const isPalindrom = (string) => {
 
   return string === reversed;
 };
+
+isPalindrom('топот');
