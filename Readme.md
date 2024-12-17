@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Енот](https://up.htmlacademy.ru/javascript-individual/2/user/2588237).
-* Наставник: `Неизвестно`.
+* Наставник: [Алексей Хапов](https://htmlacademy.ru/profile/id118459).
 
 ---
 
