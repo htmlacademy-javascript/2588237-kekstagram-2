@@ -31,13 +31,12 @@ const PHOTO_ID = createRandomIdFromRangeGenerator(1, 25);
 const PHOTO_URL = createRandomIdFromRangeGenerator(1, 25);
 const PHOTO_LIKES = createRandomIdFromRangeGenerator(15, 200);
 const COMMENTS = createRandomIdFromRangeGenerator(0, 30);
-const AVATAR_COMMENTS = createRandomIdFromRangeGenerator(1, 6);
 const ID_COMMMENTS = createRandomIdFromRangeGenerator(1, 999);
 
 function createComments() {
   return {
     id: ID_COMMMENTS(),
-    avatar: `img/avatar-${AVATAR_COMMENTS()}.svg`,
+    avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
     message: MESSAGE_COMMENTS[getRandomInteger(0, MESSAGE_COMMENTS.length - 1)],
     name: NICKNAME_COMMENTS[getRandomInteger(0, NICKNAME_COMMENTS.length - 1)]
   };
@@ -58,4 +57,6 @@ function createArrayPhoto() {
   return Array.from({length: 25}, describePhoto);
 }
 
-export {createArrayPhoto};
+const dataPhoto = createArrayPhoto();
+
+export {dataPhoto};
