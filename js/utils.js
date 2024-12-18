@@ -13,10 +13,17 @@ function createRandomIdFromRangeGenerator (min, max) {
 
   return function () {
     let currentValue = getRandomInteger(min, max);
-    if (previousValues.includes(currentValue)) {
+
+    if (previousValues.length >= (max - min + 1)) {
+      return null;
+    }
+
+    while (previousValues.includes(currentValue)) {
       currentValue = getRandomInteger(min, max);
     }
+
     previousValues.push(currentValue);
+
     return currentValue;
   };
 }
