@@ -14,6 +14,7 @@ const buttonClose = bigPicture.querySelector('.big-picture__cancel');
 
 const createComment = ({avatar, name, message}) => {
   const clonedComment = commentElement.cloneNode(true);
+
   clonedComment.querySelector('.social__picture').src = avatar;
   clonedComment.querySelector('.social__picture').alt = name;
   clonedComment.querySelector('.social__text').textContent = message;
@@ -80,8 +81,6 @@ buttonClose.addEventListener('click', onButtonCloseClick);
 const randerGallery = (pictures) => {
   picturesContainer.addEventListener('click', (evt) => {
     const clonedPicture = evt.target.closest('.picture');
-
-    // console.log(clonedPicture);
 
     if (!clonedPicture) {
       return;
