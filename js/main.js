@@ -1,6 +1,6 @@
 import './utils.js';
 import './pictures.js';
 import {dataPhoto} from './data.js';
-import { renderPosts } from './pictures.js';
+import { randerGallery } from './modal-picture.js';
 
-renderPosts(dataPhoto);
+randerGallery(dataPhoto);
