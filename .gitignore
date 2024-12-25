@@ -5,6 +5,7 @@
 *.pdf
 *.psd
 *.sublime*
+js1-kekstagram-e2e/
 build/
 node_modules/
 npm-debug.log*
