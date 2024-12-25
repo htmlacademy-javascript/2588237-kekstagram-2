@@ -106,7 +106,7 @@ const showBigPicture = (data) => {
 buttonClose.addEventListener('click', onButtonCloseClick);
 commentsLoader.addEventListener('click', onCommentsLoaderClick);
 
-const randerGallery = (pictures) => {
+const renderGallery = (pictures) => {
   picturesContainer.addEventListener('click', (evt) => {
     const clonedPicture = evt.target.closest('.picture');
 
@@ -126,4 +126,4 @@ const randerGallery = (pictures) => {
   renderPosts(pictures, picturesContainer);
 };
 
-export {randerGallery, showBigPicture};
+export {renderGallery, showBigPicture};
