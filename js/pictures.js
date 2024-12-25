@@ -3,6 +3,8 @@ const picturesTemplate = document.querySelector('#picture').content.querySelecto
 const fragment = document.createDocumentFragment();
 
 function renderPosts (posts) {
+  pictures.querySelectorAll('.picture').forEach((element) => element.remove());
+
   posts.forEach((picture) => {
     const clonedPicture = picturesTemplate.cloneNode(true);
 

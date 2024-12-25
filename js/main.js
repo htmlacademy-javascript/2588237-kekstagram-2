@@ -1,8 +1,9 @@
 import { getData, sendData } from './server.js';
-import { showAlert} from './utils.js';
+import { showAlert, debounce} from './utils.js';
 import { setOnFormSubmit, hideModal } from './form.js';
 import { showSuccessMessage, showErrorMessage} from './message.js';
 import { renderGallery } from './modal-picture.js';
+import {init as initFilter, getFilteredPictures} from './filter.js';
 
 setOnFormSubmit(async (data) => {
   try {
@@ -18,8 +19,10 @@ setOnFormSubmit(async (data) => {
 
 try {
   const data = await getData();
+  const debouncedRenderGallery = debounce(renderGallery);
 
-  renderGallery(data);
+  initFilter(data, debouncedRenderGallery);
+  renderGallery(getFilteredPictures());
 } catch {
   showAlert();
 }

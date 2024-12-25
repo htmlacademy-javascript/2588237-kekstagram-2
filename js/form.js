@@ -64,6 +64,8 @@ const isTextFieldFocused = () =>
   document.activeElement === hashtagField ||
   document.activeElement === commentField;
 
+const isErrorMessageShown = () => Boolean(document.querySelector('.error'));
+
 const normalizeTags = (tagString) => tagString
   .trim()
   .split(' ')
@@ -77,8 +79,6 @@ const hasUniqueTags = (value) => {
 
   return lowerCaseTags.length === new Set(lowerCaseTags).size;
 };
-
-const isErrorMessageShown = () => Boolean(document.querySelector('.error'));
 
 function onDocumentKeydown(evt) {
   if (evt.key === 'Escape' && !isTextFieldFocused() && isErrorMessageShown()) {

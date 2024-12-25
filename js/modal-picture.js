@@ -106,24 +106,30 @@ const showBigPicture = (data) => {
 buttonClose.addEventListener('click', onButtonCloseClick);
 commentsLoader.addEventListener('click', onCommentsLoaderClick);
 
-const renderGallery = (pictures) => {
-  picturesContainer.addEventListener('click', (evt) => {
-    const clonedPicture = evt.target.closest('.picture');
+let pictures = [];
 
-    if (!clonedPicture) {
-      return;
-    }
+const onContainerClick = (evt) => {
+  const clonedPicture = evt.target.closest('.picture');
 
-    const picture = pictures.find(
-      (item) => item.id === +clonedPicture.dataset.pictureId
-    );
+  if (!clonedPicture) {
+    return;
+  }
 
-    if (picture) {
-      showBigPicture(picture);
-    }
-  });
+  const picture = pictures.find(
+    (item) => item.id === +clonedPicture.dataset.pictureId
+  );
+
+  if (picture) {
+    showBigPicture(picture);
+  }
+};
+
+const renderGallery = (currentPictures) => {
+  pictures = currentPictures;
 
   renderPosts(pictures, picturesContainer);
+
+  picturesContainer.addEventListener('click', onContainerClick);
 };
 
 export {renderGallery, showBigPicture};
