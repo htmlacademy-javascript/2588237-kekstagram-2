@@ -1,6 +1,15 @@
-import './utils.js';
-import './pictures.js';
-import {dataPhoto} from './data.js';
-import { randerGallery } from './modal-picture.js';
+import { setUploadForm } from './form.js';
+import { showGallery } from './gallery.js';
+import { getData } from './api.js';
+import { showErrorMessage } from './popup.js';
 
-randerGallery(dataPhoto);
+setUploadForm();
+getData()
+  .then((data) => {
+    showGallery(data);
+  })
+  .catch(
+    (err) => {
+      showErrorMessage(err.message);
+    }
+  );
