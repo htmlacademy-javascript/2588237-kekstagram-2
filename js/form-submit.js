@@ -3,7 +3,7 @@ import { sendData } from './api.js';
 import { closeUploadForm } from './form.js';
 import { showPopup, showErrorMessage } from './popup.js';
 import { isValid } from './form-validation.js';
-import { setFilterActive } from './gallery.js';
+import { setFilterActive, debounceRenderGallery } from './gallery.js';
 
 const uploadFormElement = document.querySelector('.img-upload__form');
 const submitButtonElement = uploadFormElement.querySelector('.img-upload__submit');
@@ -26,6 +26,7 @@ const onFormSubmit = (evt) => {
       .then(() => {
         closeUploadForm();
         showPopup('success');
+        debounceRenderGallery();
         setFilterActive(FILTERS.DEFAULT);
       })
       .catch(

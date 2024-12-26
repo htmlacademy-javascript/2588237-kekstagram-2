@@ -85,4 +85,4 @@ const showGallery = (data) => {
   setFilterActive(currentFilter);
 };
 
-export { showGallery, setFilterActive };
+export { showGallery, setFilterActive, debounceRenderGallery };
