@@ -61,6 +61,12 @@ const setFilterActive = (name) => {
   });
 };
 
+const resetFilterOnDefault = () => {
+  currentFilter = FILTERS.DEFAULT;
+  debounceRenderGallery();
+  setFilterActive(FILTERS.DEFAULT);
+};
+
 const onFilterClick = (evt) => {
   if (evt.target.classList.contains('img-filters__button')) {
     if (evt.target.id === currentFilter) {
@@ -85,4 +91,4 @@ const showGallery = (data) => {
   setFilterActive(currentFilter);
 };
 
-export { showGallery, setFilterActive };
+export { showGallery, setFilterActive, debounceRenderGallery, resetFilterOnDefault };
