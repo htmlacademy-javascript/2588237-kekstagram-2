@@ -9,22 +9,23 @@ function getRandomInteger (min, max) {
 
 //Генератор случаных чисел
 function createRandomIdFromRangeGenerator (min, max) {
-  const previousValues = [];
+  const previousNumbs = [];
+  const totalNumbers = max - min + 1;
 
   return function () {
-    let currentValue = getRandomInteger(min, max);
-
-    if (previousValues.length >= (max - min + 1)) {
-      return null;
+    if (previousNumbs.length >= totalNumbers) {
+      return;
     }
 
-    while (previousValues.includes(currentValue)) {
-      currentValue = getRandomInteger(min, max);
-    }
+    let currentNum;
 
-    previousValues.push(currentValue);
+    do {
+      currentNum = getRandomInteger(min, max);
+    } while (previousNumbs.includes(currentNum));
 
-    return currentValue;
+    previousNumbs.push(currentNum);
+
+    return currentNum;
   };
 }
 

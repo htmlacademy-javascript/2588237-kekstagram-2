@@ -10,6 +10,7 @@ function renderPosts (posts) {
     clonedPicture.querySelector('.picture__img').alt = picture.description;
     clonedPicture.querySelector('.picture__likes').textContent = picture.likes;
     clonedPicture.querySelector('.picture__comments').textContent = picture.comments.length;
+    clonedPicture.dataset.pictureId = picture.id;
 
     fragment.appendChild(clonedPicture);
   });
