@@ -63,6 +63,10 @@ const setFilterActive = (name) => {
 
 const onFilterClick = (evt) => {
   if (evt.target.classList.contains('img-filters__button')) {
+    if (evt.target.id === currentFilter) {
+      return;
+    }
+
     currentFilter = evt.target.id;
     debounceRenderGallery();
     setFilterActive(currentFilter);
@@ -81,4 +85,4 @@ const showGallery = (data) => {
   setFilterActive(currentFilter);
 };
 
-export { showGallery };
+export { showGallery, setFilterActive };

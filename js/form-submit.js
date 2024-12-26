@@ -1,8 +1,9 @@
-import { SUBMIT_TEXT } from './init.js';
+import { SUBMIT_TEXT, FILTERS } from './init.js';
 import { sendData } from './api.js';
 import { closeUploadForm } from './form.js';
 import { showPopup, showErrorMessage } from './popup.js';
 import { isValid } from './form-validation.js';
+import { setFilterActive } from './gallery.js';
 
 const uploadFormElement = document.querySelector('.img-upload__form');
 const submitButtonElement = uploadFormElement.querySelector('.img-upload__submit');
@@ -25,6 +26,7 @@ const onFormSubmit = (evt) => {
       .then(() => {
         closeUploadForm();
         showPopup('success');
+        setFilterActive(FILTERS.DEFAULT);
       })
       .catch(
         (err) => {
