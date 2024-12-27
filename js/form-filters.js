@@ -68,7 +68,7 @@ const setSlider = () => {
   }
 };
 
-const startFilterHandler = (evt) => {
+const onEffectChange = (evt) => {
   filterActive = evt.target.value;
   setSlider();
   setImageStyles();
@@ -76,12 +76,12 @@ const startFilterHandler = (evt) => {
 
 const setFilters = () => {
   createSlider(EFFECTS[EFFECT_DEFAULT].config);
-  effectListElement.addEventListener('change', startFilterHandler);
+  effectListElement.addEventListener('change', onEffectChange);
 };
 
 const removeFilters = () => {
   effectItemElements[0].children[0].checked = true;
-  effectListElement.removeEventListener('change', startFilterHandler);
+  effectListElement.removeEventListener('change', onEffectChange);
   sliderElement.noUiSlider?.destroy();
 };
 
